@@ -1,0 +1,211 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	outline: none;
+	text-decoration: none;
+	outline: none;
+	font-family: inherit;
+	box-sizing: border-box;
+}
+
+ol,
+ul,
+li {
+	list-style: none;
+	display: block;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a img {
+	border: none;
+}
+
+button,
+a {
+	cursor: pointer;
+	color: inherit;
+}
+
+textarea {
+	resize: none;
+}
+
+button,
+input,
+textarea,
+select {
+	appearance: none !important;
+	-webkit-appearance: none !important;
+	border-radius: 0;
+}
+
+body {
+	background-color: black;
+}
+
+main {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+}
+
+div#left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3;
+	display: inline-block;
+
+	width: 10vw;
+	height: 100vh;
+
+	background: rgb(2,0,36);
+}
+
+div#right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 3;
+	display: inline-block;
+
+	width: 10vw;
+	height: 100vh;
+
+	background: rgb(2,0,36);
+}
+
+@keyframes sceneAnimation {
+  0% { background-position: 0% 0%; }
+	12% { background-position: 0% 25%; }
+	25% { background-position: 0% 50%; }
+	37% { background-position: 0% 75%; }
+  50% { background-position: 0% 100%; }
+	63% { background-position: 0% 75%; }
+	75% { background-position: 0% 50%; }
+	87% { background-position: 0% 25%; }
+	100% { background-position: 0% 0%; }
+}
+
+#scene {
+	position: absolute;
+	left: 10vw;
+	display: inline-block;
+
+	width: 80vw;
+	height: 100vh;
+	margin: 0 auto;
+
+	background: rgb(2,0,36);
+	background-image: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 33%, rgba(0,212,255,1) 100%);
+	background-size: 100% 300%;
+
+	animation-name: sceneAnimation;
+  animation-duration: 10s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes pacmanAnimation {
+	50% {border-right: 90px solid orange;} 
+}
+
+#pacman {
+	position: absolute;
+	top: calc(50% - 45px);
+	left: 10%;
+	z-index: 3;
+
+	width: 0px;
+	height: 0px;
+
+	border-right: 90px solid transparent;
+	border-top: 90px solid orange;
+	border-left: 90px solid orange;
+	border-bottom: 90px solid orange;
+	border-top-left-radius: 90px;
+	border-top-right-radius: 90px;
+	border-bottom-left-radius: 90px;
+	border-bottom-right-radius: 90px;
+
+	animation-name: pacmanAnimation;
+  animation-duration: 0.5s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	animation-timing-function: step-start;
+}
+
+@keyframes mealAnimation {
+  0% {transform: scale(0.25) translate(100vw, 0);}
+	15% {top: 40%;}
+	40% {top: 60%;}
+	60% {top: calc(50% - 45px); }
+  100% {transform: scale(0.25) translate(-195vw, 0); }
+}
+
+.meal {
+	position: absolute;
+	top: calc(50% - 20px);
+	right: 20vw;
+	z-index: 2;
+
+	box-shadow: 0 0 0 1em red,
+	0 1em 0 1em red,
+	-2.5em 1.5em 0 .5em red,
+	2.5em 1.5em 0 .5em red,
+	-3em -3em 0 0 red,
+	3em -3em 0 0 red,
+	-2em -2em 0 0 red,
+	2em -2em 0 0 red,
+	-3em -1em 0 0 red,
+	-2em -1em 0 0 red,
+	2em -1em 0 0 red,
+	3em -1em 0 0 red,
+	-4em 0 0 0 red,
+	-3em 0 0 0 red,
+	3em 0 0 0 red,
+	4em 0 0 0 red,
+	-5em 1em 0 0 red,
+	-4em 1em 0 0 red,
+	4em 1em 0 0 red,
+	5em 1em 0 0 red,
+	-5em 2em 0 0 red,
+	5em 2em 0 0 red,
+	-5em 3em 0 0 red,
+	-3em 3em 0 0 red,
+	3em 3em 0 0 red,
+	5em 3em 0 0 red,
+	-2em 4em 0 0 red,
+	-1em 4em 0 0 red,
+	1em 4em 0 0 red,
+	2em 4em 0 0 red;
+	background: red;
+	width: 1em;
+	height: 1em;
+	overflow: hidden;
+	margin: 50px 0 70px 65px;
+
+	transform: scale(0.25);
+
+	animation-name: mealAnimation;
+  animation-duration: 2s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+}
+
+#meal2 {
+	animation-name: mealAnimation;
+  animation-duration: 3s;
+}
+
+#meal3 {
+	animation-name: mealAnimation;
+  animation-duration: 5s;
+}
